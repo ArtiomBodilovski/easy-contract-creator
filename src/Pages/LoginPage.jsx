@@ -1,9 +1,9 @@
 import React from 'react'
-import SingIn from '../components/auth/SingIn/SingIn'
+import SignIn from '../components/auth/SignIn/SignIn'
 
 const LoginPage = () => {
   return (
-    <SingIn></SingIn>
+    <SignIn></SignIn>
     )
 }
 

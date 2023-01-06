@@ -4,7 +4,7 @@ import {auth} from '../../../firebase'
 import {useNavigate} from 'react-router-dom'
 import styles from "./styles.module.css";
 
-export const SingIn = () => {
+export const SignIn = () => {
     const [email,setEmail] =useState('')
     const [password,setPassword] = useState('')
     const navigate = useNavigate();
@@ -22,7 +22,7 @@ export const SingIn = () => {
     }
 
     function handleClick() {
-        navigate("/singup");
+        navigate("/signup");
     }
 
   return (
@@ -63,4 +63,4 @@ export const SingIn = () => {
   )
 }
 
-export default SingIn
+export default SignIn

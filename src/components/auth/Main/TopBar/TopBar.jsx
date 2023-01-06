@@ -6,8 +6,9 @@ import styles from "./styles.module.css";
 
 
 const TopBar = () => {
-    const [authUser, setAuthUser] = useState(null);
     const navigate = useNavigate();
+    const [authUser, setAuthUser] = useState(null);
+
     useEffect(() => {
       const listen = onAuthStateChanged(auth, (user) => {
         if (user) {
