@@ -17,7 +17,7 @@ const SlideBar = () => {
                     navigate("/my_contracts")
                   break;
                 case "recived_contacts":
-                    navigate("/home")
+                    navigate("/recived_contracts")
                   break;
                 default:
                    console.log("navigate problem")

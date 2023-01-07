@@ -1,10 +1,10 @@
 import React from 'react'
 import SlideBar from '../../components/auth/Main/Slidebar/SlideBar'
 import TopBar from '../../components/auth/Main/TopBar/TopBar'
-import ContractTable from '../../components/auth/Main/Contract/ShowContract/ContractTable/ContractTable'
+import ResivedContractTable from '../../components/auth/Main/Contract/ShowContract/ContractTable/ResivedContractTable'
 
 
-const MyContracts = () => {
+const RecivedContract = () => {
   return (
     <div>
       <TopBar/>
@@ -13,11 +13,11 @@ const MyContracts = () => {
           <SlideBar/>
         </div>
         <div style={{display: 'flex',  justifyContent:'center', alignItems:'center', height: '50vh',paddingLeft : '370px'}}>
-          <ContractTable/>
+          <ResivedContractTable/>
         </div>
       </div>
     </div>
   )
 }
 
-export default MyContracts
+export default RecivedContract
