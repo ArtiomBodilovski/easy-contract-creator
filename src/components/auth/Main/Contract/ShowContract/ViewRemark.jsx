@@ -6,8 +6,8 @@ import React ,{ useEffect, useState } from 'react'
 import {useLocation, useNavigate} from 'react-router-dom'
 import styles from "../ContractForm/styles.module.css";
 import { Row } from 'antd';
-import {db,auth} from '../../../../../firebase'
-import { doc,getDoc,updateDoc,collection} from "firebase/firestore";
+import {db} from '../../../../../firebase'
+import { getDoc,doc,updateDoc} from "firebase/firestore";
 
 const CreateRemark = () => {
     const location = useLocation();
@@ -15,6 +15,25 @@ const CreateRemark = () => {
     console.log(data)
     const navigate = useNavigate();
     const [input, setInput] = useState({remark:""});
+    const [contractData,setContractData]=useState({})
+
+
+    useEffect(() => {
+        const getContractData = async() => {
+            const docRef = doc(db, "contracts", data.contract_id);
+            const docSnap = await getDoc(docRef);
+            if (docSnap.exists()) {
+                console.log("Document data:", docSnap.data());
+                setContractData(docSnap.data())
+            } else 
+            {
+            // doc.data() will be undefined in this case
+                console.log("No such document!");
+            }
+          }
+          getContractData()
+          console.log(contractData)
+    },[]);
 
     const changeHandler = (e) =>{
         const{name,value} = e.target;
@@ -47,13 +66,14 @@ const CreateRemark = () => {
                         placeholder="Give Remark"
                         name="remark"
                         id="remark"
+                        defaultValue={contractData.remark}
                         className={styles.textarea}
                         onChange={changeHandler}
                     />
                 </Row>
                 <Row style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
                     <button className={styles.white_btn} onClick={()=>handleBackClick()}>Back</button>
-                    <button type="submit" className={saveButtonStyle.green_btn} >Send</button>
+                    <button type="submit" className={saveButtonStyle.green_btn} >Update</button>
                 </Row>
                 <ToastContainer/>
             </div>

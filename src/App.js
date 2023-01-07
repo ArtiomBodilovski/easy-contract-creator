@@ -9,7 +9,8 @@ import RecivedContract from './Pages/DashboardScreens/RecivedContractPage';
 import ContractItems from './components/auth/Main/Contract/ContractItems';
 import ContactView from './components/auth/Main/Contract/ShowContract/ContactView';
 import ContractEdit from './components/auth/Main/Contract/ShowContract/ContractEdit';
-
+import CreateRemark from './components/auth/Main/Contract/ShowContract/CreateRemark';
+import ViewRemark from './components/auth/Main/Contract/ShowContract/ViewRemark';
 
 function App() {
   return (
@@ -24,8 +25,8 @@ function App() {
         <Route path= "/contract_items" element={<ContractItems/>}/>
         <Route path= "/view_contract/:id" element={<ContactView/>}/>
         <Route path= "/edit_contract/:id" element={<ContractEdit/>}/>
-        {/* 
-        <Route path= "/feeadback_contract/:id" element={<GiveFeedback/>}/> */}
+        <Route path= "/remark_contract/:id" element={<CreateRemark/>}/>
+        <Route path= "/view_remark_contract/:id" element={<ViewRemark/>}/>
       </Routes>
     </div>
   );

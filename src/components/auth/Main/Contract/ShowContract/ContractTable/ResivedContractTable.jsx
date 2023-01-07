@@ -15,11 +15,10 @@ const ResivedContractTable = () => {
     }
 
     function handleRemarksClick(contract_id,id) {
-        //TODO
-        // navigate(`/feedback_contract/${id}`,
-        // {
-        //   state: {data:contract_id}
-        // });
+        navigate(`/remark_contract/${id}`,
+        {
+          state: {contract_id:contract_id, nav:"/recived_contracts"}
+        });
     }
 
     const [data,setData]=useState({})

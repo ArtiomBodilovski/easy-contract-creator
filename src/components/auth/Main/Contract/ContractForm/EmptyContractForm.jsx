@@ -14,8 +14,9 @@ const EmptyContractForm = () => {
   const navigate = useNavigate();
   const [options,setOptions]=useState(null )
   const [userEmail,setUserEmail] = useState("")
+  const [input, setInput] = useState({about:"",name1:"",id1:"",name2:"",id2:"",contract:""});
+  const [authUser, setAuthUser] = useState(null);
   // const currDate = new Date().toLocaleDateString();
-
 
   useEffect(()=>{
     const getUserEmails = async() => {
@@ -32,8 +33,7 @@ const EmptyContractForm = () => {
     getUserEmails()
   },[]);
   
-  const [input, setInput] = useState({about:"",name1:"",id1:"",name2:"",id2:"",contract:""});
-  const [authUser, setAuthUser] = useState(null);
+
   useEffect(() => {
     const listen = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -98,7 +98,8 @@ const EmptyContractForm = () => {
       id2:input.id2,
       contract:input.contract,
       contact_email: userEmail,
-      creater_email:authUser.email
+      creater_email:authUser.email,
+      remark:""
     });
     addContractToUsers(id)
     sendContractToUsers(id)
