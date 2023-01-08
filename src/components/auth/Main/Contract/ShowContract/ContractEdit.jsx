@@ -127,6 +127,7 @@ const EmptyContractForm = () => {
                         name='contract' 
                         className={styles.textarea}
                         defaultValue={contractData.contract}
+                        onChange={changeHandler}
                         />
                     </Row>
                     <Row style={{display: 'flex',  justifyContent:'center', alignItems:'center'}}>
